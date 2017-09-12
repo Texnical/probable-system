@@ -1,0 +1,92 @@
+\documentclass[letterpaper]{article}
+\usepackage{microtype}
+\usepackage[colorlinks=true,urlcolor=blue]{hyperref}
+\usepackage{phonenumbers}
+\usepackage{bold-extra}
+\usepackage{multicol}
+\usepackage[margin=0.5in]{geometry}
+\usepackage{enumitem}
+\setlist[itemize]{noitemsep,topsep=0pt}
+\setlength\multicolsep{0pt}
+
+\newcommand{\titlename}[1]{\centerline{\huge \bfseries{\scshape{#1}}}}
+\newcommand{\contactinfo}[1]{\centerline{\small #1}}
+\renewcommand{\section}[1]{\bigskip\noindent\textbf{#1}\smallskip}
+\newcommand{\altsection}[1]{\noindent\textbf{#1}\smallskip}
+\newcommand{\entry}[3]{\textbf{#1}, #2\begin{itemize}[leftmargin=3.5em]#3\end{itemize}\bigskip}
+
+\begin{document}
+\titlename{Mark Smullen}
+\contactinfo{%
+    824 Harmon Drive, Longview, TX 75602 \textperiodcentered \ %
+    \href{mailto:mark@techfocus.net}{\nolinkurl{mark@techfocus.net}} \textperiodcentered \ %
+    \url{http://github.com/Texnical} \textperiodcentered \ %
+    \phonenumber[country=US]{2707911770}%
+}
+\vspace{2mm}
+\hrule
+\vspace{2mm}
+\centerline{Seeking a full-time position in software engineering, linux system administration, or game development.}
+\vspace{2mm}
+\hrule
+
+\section{EDUCATION}
+
+\textbf{LeTourneau University, Longview, TX}                            \hfill          \textbf{Expected:} Dec 2017
+
+Bachelor of Science - Computer Science, Game Development Concentration, GPA 3.1/4.0, Major: 3.3/4.0
+
+
+\section{SKILLS AND QUALIFICATIONS}
+
+\begin{multicols}{2}
+\begin{itemize}[leftmargin=3.5em]
+    \item Fluent with Windows, Mac OS X, Linux (RedHat/CentOS, Debian)
+    \item Proficient with C, C++, Java, PHP, SQL, Web, NodeJS, Bash, Git, and Subversion
+    \item Proficient with database and system administration
+    \item Intermediate at NodeJS, Docker, Python
+    \item Basic experience with C\#, Perl, Ruby, Lua, and batch
+    \item Proficient in system troubleshooting and customer service
+    \item Member in ACM, IEEE
+\end{itemize}
+\end{multicols}
+
+\section{EXPERIENCE}
+
+\entry{Programmer/Analyst Intern}{LeTourneau University                 \hfill          May 2017 - Present} {
+    \item Design, develop, and maintain web applications used by students, faculty, staff, and administration in a Scrum environment using a variety of technologies including SQL, PHP, Perl, JavaScript, Docker, and Bash scripting
+}
+
+\entry{System Administrator, Team Lead}{MuttsWorld                             \hfill          May 2012 - Jun 2013} {
+    \item Ensured positive service by enforcing quality standards       \hfill          Feb 2016 - Jun 2016
+    \item Provided quality service through online entertainment organization to worldwide audience
+    \item Maintained staff by recruiting and training volunteer workers
+    \item Established goals by gathering service and system information and analyzing key trends
+    \item Managed CentOS Linux system for maintenance and updates
+    \item Increased efficiency by over 400\% through automation and developing in-house tools
+}
+
+\altsection{PROJECTS}
+
+\entry{Nimbus}{Senior Game Project} {
+    \item Developed and reviewed many underlying systems in an agile development environment using C++ and the OGRE3D engine (\url{https://github.com/dreac0nic/nimbus})
+}
+
+\entry{Grave Danger}{Ludum Dare Jam 2014} {
+    \item Worked in rapid agile team development environment using Phaser.io JavaScript platform for .Beneath the Surface. contest submission (\url{https://github.com/NetCreator/gravedanger})
+    \item Participated in program design, application requirements, backend software development, and software asset integration
+}
+
+\entry{GraviPlay}{Ludum Dare Jam 2012} {
+    \item Assisted with program design, application requirements, and asset creation for visual and audible media in agile environment for .Tiny World. contest submission
+}
+
+\entry{ICCM TFM Contest Voting Application}{LightSys Technologies Services} {
+    \item Programmed user interface and supporting back-end for web polling application in agile team development environment using HTML5, CSS3, PHP, MySQL, JavaScript, and JQuery (\url{https://github.com/tyounglightsys/TFMVoting})
+}
+
+\entry{University Locksmith Database}{LeTourneau University} {
+    \item Created internal data storage by commision for LeTourneau University to transition records of campus locks and keys from physical records to digital solution in Microsoft Access.
+}
+
+\end{document}
