@@ -6,14 +6,21 @@
 \usepackage{multicol}
 \usepackage[margin=0.5in]{geometry}
 \usepackage{enumitem}
-\setlist[itemize]{noitemsep,topsep=0pt}
+\setlist[itemize]{itemsep=0pt,topsep=0pt}
 \setlength\multicolsep{0pt}
+\pagenumbering{gobble}
 
 \newcommand{\titlename}[1]{\centerline{\huge \bfseries{\scshape{#1}}}}
 \newcommand{\contactinfo}[1]{\centerline{\small #1}}
 \renewcommand{\section}[1]{\bigskip\noindent\textbf{#1}\smallskip}
 \newcommand{\altsection}[1]{\noindent\textbf{#1}\smallskip}
 \newcommand{\entry}[3]{\textbf{#1}, #2\begin{itemize}[leftmargin=3.5em]#3\end{itemize}\bigskip}
+\newcommand\eol[1]{%
+    \begingroup
+    \renewcommand\thefootnote{}\footnote{#1}%
+    \addtocounter{footnote}{-1}%
+    \endgroup
+}
 
 \begin{document}
 \titlename{Mark Smullen}
@@ -47,17 +54,16 @@ Bachelor of Science - Computer Science, Game Development Concentration, GPA 3.1/
     \item Intermediate at NodeJS, Docker, Python
     \item Basic experience with C\#, Perl, Ruby, Lua, and batch
     \item Proficient in system troubleshooting and customer service
-    \item Member in ACM, IEEE
 \end{itemize}
 \end{multicols}
 
 \section{EXPERIENCE}
 
 \entry{Programmer/Analyst Intern}{LeTourneau University                 \hfill          May 2017 - Present} {
-    \item Design, develop, and maintain web applications used by students, faculty, staff, and administration in a Scrum environment using a variety of technologies including SQL, PHP, Perl, JavaScript, Docker, and Bash scripting
+    \item Design, develop, maintain, and code review web applications used by all of campus in a Scrum environment using various technologies including SQL, PHP, Perl, JavaScript, Docker, Active Directory, and Bash scripting
 }
 
-\entry{System Administrator, Team Lead}{MuttsWorld                             \hfill          May 2012 - Jun 2013} {
+\entry{System Administrator, Team Lead}{MuttsWorld                             \hfill          May 2012 - Jun 2013}  {
     \item Ensured positive service by enforcing quality standards       \hfill          Feb 2016 - Jun 2016
     \item Provided quality service through online entertainment organization to worldwide audience
     \item Maintained staff by recruiting and training volunteer workers
@@ -69,7 +75,15 @@ Bachelor of Science - Computer Science, Game Development Concentration, GPA 3.1/
 \altsection{PROJECTS}
 
 \entry{Nimbus}{Senior Game Project} {
-    \item Developed and reviewed many underlying systems in an agile development environment using C++ and the OGRE3D engine (\url{https://github.com/dreac0nic/nimbus})
+    \item Developed and reviewed underlying systems on team of twelve in agile environment using C++ and OGRE3D (\url{https://github.com/dreac0nic/nimbus})
+}
+
+\entry{ICCM TFM Contest Voting Application}{LightSys Technologies Services} {
+    \item Programmed user interface and supporting back-end for web polling application in agile team development environment using HTML5, CSS3, PHP, MySQL, JavaScript, and JQuery (\url{https://github.com/tyounglightsys/                 TFMVoting})
+}
+
+\entry{University Locksmith Database}{LeTourneau University} {
+    \item Designed and implemented database management system solution in Microsoft Access for campus locksmith.
 }
 
 \entry{Grave Danger}{Ludum Dare Jam 2014} {
@@ -78,15 +92,20 @@ Bachelor of Science - Computer Science, Game Development Concentration, GPA 3.1/
 }
 
 \entry{GraviPlay}{Ludum Dare Jam 2012} {
-    \item Assisted with program design, application requirements, and asset creation for visual and audible media in agile environment for .Tiny World. contest submission
+    \item Experienced highly rapid development lifecycle and created multimedia for game development competition in a team of four over seventy two hours.
 }
 
-\entry{ICCM TFM Contest Voting Application}{LightSys Technologies Services} {
-    \item Programmed user interface and supporting back-end for web polling application in agile team development environment using HTML5, CSS3, PHP, MySQL, JavaScript, and JQuery (\url{https://github.com/tyounglightsys/TFMVoting})
-}
+\altsection{EXTRACURRICULAR AND PROFESSIONAL AFFILIATIONS}
 
-\entry{University Locksmith Database}{LeTourneau University} {
-    \item Created internal data storage by commision for LeTourneau University to transition records of campus locks and keys from physical records to digital solution in Microsoft Access.
-}
+\begin{multicols}{2}
+\begin{itemize}[leftmargin=3.5em]
+\item Member of ACM
+\item Member of IEEE
+\item Served in Student Senate \hfill Aug 2011 - May 2014
+\item Black Sash in Jakarido Kung Fu
+\end{itemize}
+\end{multicols}
+
+\eol{\noindent\textbf{This resume made in \LaTeX{}}; built and automated with \LaTeX{}, Docker, and TravisCI! (\url{https://github.com/Texnical/probable-system})}
 
 \end{document}
