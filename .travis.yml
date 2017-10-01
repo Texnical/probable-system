@@ -5,7 +5,7 @@ install:
   - docker pull texnical/tl-stretch:latest
 # - apt-get -qq update && sudo apt-get install -y --no-install-recommends texlive-fonts-recommended texlive-latex-extra texlive-fonts-extra dvipng texlive-latex-recommended
 script:
-  - docker run -it -v $(pwd)/resume.tex:~/resume.tex texnical/tl-stretch:latest sh -c "pdflatex ~/resume.tex"
+  - docker run -it -v $(pwd)/resume.tex:/resume.tex texnical/tl-stretch:latest sh -c "pdflatex /resume.tex"
 before_deploy:
   - mv resume.pdf latest.pdf
 deploy:
