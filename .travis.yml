@@ -4,9 +4,13 @@ services:
 install:
   - docker pull texnical/tl-stretch:latest
 script:
-  - docker run -it -v $(pwd)/resume.tex:/resume.tex texnical/tl-stretch:latest sh -c "pdflatex resume.tex"
+  - docker run texnical/tl-stretch:latest sh -c "pwd"
+  - docker run texnical/tl-stretch:latest sh -c "ls -halF"
+  - docker run -v $(pwd)/resume.tex:/resume.tex texnical/tl-stretch:latest sh -c "pdflatex resume.tex"
+  - docker run texnical/tl-stretch:latest sh -c "pwd"
+  - docker run texnical/tl-stretch:latest sh -c "ls -halF"
 before_deploy:
-  - mv resume.pdf latest.pdf
+  - mv /resume.pdf latest.pdf
 deploy:
   provider: pages
   name: "Mark Smullen"
