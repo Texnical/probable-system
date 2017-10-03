@@ -3,11 +3,11 @@ services:
   - docker
 before_install:
   - docker pull texnical/tl-stretch
-  - docker run -d -v "$(pwd):~" texnical/tl-stretch pdflatex ~/resume.tex
+  - docker run -d -v "$(pwd):/opt/pdflatex" texnical/tl-stretch pdflatex -output-directory=/opt/pdflatex /opt/pdflatex/resume.tex
 script:
-  - pdflatex ~/resume.tex
+  - pdflatex -output-directory=/opt/pdflatex /opt/pdflatex/resume.tex
 before_deploy:
-  - mv ~/resume.pdf latest.pdf
+  - mv resume.pdf latest.pdf
 deploy:
   provider: pages
   name: "Mark Smullen"
