@@ -6,10 +6,7 @@ install:
   - touch resume.pdf
 script:
   - ls -halF
-  - docker run -d \
-      -v "$(pwd)/resume.tex:/resume.tex" \
-      -v "$(pwd)/resume.pdf:/resume.pdf" \ 
-      texnical/tl-stretch pdflatex resume.tex
+  - docker run -d -v "$(pwd)/resume.tex:/resume.tex" -v "$(pwd)/resume.pdf:/resume.pdf" texnical/tl-stretch pdflatex resume.tex
   - ls -halF
 before_deploy:
   - mv resume.pdf latest.pdf
