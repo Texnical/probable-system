@@ -3,8 +3,14 @@ services:
   - docker
 install:
   - docker pull texnical/tl-stretch
+  - touch resume.pdf
 script:
-  - docker run -d -v "$(pwd):/opt/pdflatex" texnical/tl-stretch pdflatex -output-directory=/opt/pdflatex /opt/pdflatex/resume.tex
+  - ls -halF
+  - docker run -d \
+      -v "$(pwd)/resume.tex:/resume.tex" \
+      -v "$(pwd)/resume.pdf:/resume.pdf" \ 
+      texnical/tl-stretch pdflatex resume.tex
+  - ls -halF
 before_deploy:
   - mv resume.pdf latest.pdf
 deploy:
