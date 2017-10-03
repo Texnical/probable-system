@@ -1,16 +1,13 @@
 sudo: required
 services:
   - docker
-install:
-  - docker pull texnical/tl-stretch:latest
+before_install:
+  - docker pull texnical/tl-stretch
+  - docker run -d -v "$(pwd):~" texnical/tl-stretch pdflatex ~/resume.tex
 script:
-  - docker run texnical/tl-stretch:latest sh -c "pwd"
-  - docker run texnical/tl-stretch:latest sh -c "ls -halF"
-  - docker run -v $(pwd)/resume.tex:/resume.tex texnical/tl-stretch:latest sh -c "pdflatex resume.tex"
-  - docker run texnical/tl-stretch:latest sh -c "pwd"
-  - docker run texnical/tl-stretch:latest sh -c "ls -halF"
+  - pdflatex ~/resume.tex
 before_deploy:
-  - mv /resume.pdf latest.pdf
+  - mv ~/resume.pdf latest.pdf
 deploy:
   provider: pages
   name: "Mark Smullen"
