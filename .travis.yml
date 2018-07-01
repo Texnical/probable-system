@@ -1,0 +1,20 @@
+sudo: required
+services:
+  - docker
+install:
+  - docker pull texnical/tl-stretch
+  - touch resume.pdf
+script:
+  - docker run -d -v "$(pwd)/resume.tex:/resume.tex" -v "$(pwd)/resume.pdf:/resume.pdf" texnical/tl-stretch pdflatex resume.tex
+before_deploy:
+  - mv resume.pdf latest.pdf
+deploy:
+  provider: pages
+  name: "Mark Smullen"
+  email: "marksmullen@letu.edu"
+  skip_cleanup: true
+  github_token: $GITHUB_TOKEN
+  file:
+    - latest.pdf
+  on:
+    branch: master
