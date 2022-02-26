@@ -1,0 +1,33 @@
+name: Build & Publish LaTeX to GitHub Pages
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build the site in the jekyll/builder container
+      run: |
+        docker run \
+        -v ${{ github.workspace }}:/srv/jekyll -v ${{ github.workspace }}/_site:/srv/jekyll/_site \
+        jekyll/builder:latest /bin/bash -c "chmod -R 777 /srv/jekyll && jekyll build --future"
+        
+    - name: Build LaTeX to PDF
+      run: |
+        docker run \
+        -v ${{ github.workspace }}:/opt/latex
+        texnical/tl-stretch bash -c "mkdir /tmp && cd /tmp && pdflatex /opt/latex/resume.tex && mv /tmp/resume.pdf /opt/latex/latest.pdf"
+
+    - name: Deploy 🚀
+      uses: JamesIves/github-pages-deploy-action@v4.2.5
+      with:
+        branch: gh-pages # The branch the action should deploy to.
+        folder: . # The folder the action should deploy.
