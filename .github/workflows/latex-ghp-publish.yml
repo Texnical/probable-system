@@ -19,7 +19,7 @@ jobs:
       run: |
         docker run \
         -v ${{ github.workspace }}:/opt/latex \
-        texnical/tl-stretch bash -c "mkdir /tmp && cd /tmp && pdflatex /opt/latex/resume.tex && mv /tmp/resume.pdf /opt/latex/latest.pdf"
+        texnical/tl-stretch bash -c "cd /tmp && pdflatex /opt/latex/resume.tex && mv /tmp/resume.pdf /opt/latex/latest.pdf"
 
     - name: Deploy 🚀
       uses: JamesIves/github-pages-deploy-action@v4.2.5
