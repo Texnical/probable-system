@@ -18,7 +18,7 @@ jobs:
     - name: Build LaTeX to PDF
       run: |
         docker run \
-        -v ${{ github.workspace }}:/opt/latex
+        -v ${{ github.workspace }}:/opt/latex \
         texnical/tl-stretch bash -c "mkdir /tmp && cd /tmp && pdflatex /opt/latex/resume.tex && mv /tmp/resume.pdf /opt/latex/latest.pdf"
 
     - name: Deploy 🚀
